@@ -1,0 +1,45 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post"  enctype="multipart/form-data" action="{% url 'editmanageproductspot' %}">
+  <table width="479" height="227" border="1" id="customers">
+    <tr>
+      <td>product</td>
+      <td><label>
+        <input type="text" name="textfield" required  pattern="[A-Z a-z.]{1,25}"  value="{{ val.productname }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td><input type="file" name="file" value="{{ val.image }}"><img src="/media/{{ val.image }}" width="80dp" height="80dp" alt=""/></td>
+    </tr>
+    <tr>
+      <td>price</td>
+      <td><label>
+        <input type="text" name="textfield3" required pattern="[0-9.]{1,6}" value="{{ val.price }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>stock</td>
+      <td><label>
+        <input type="text" name="textfield4" required pattern="[0-9]{1,}" value="{{ val.stock }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>details</td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{ val.details }}"required />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="Edit" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

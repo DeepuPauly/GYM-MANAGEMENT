@@ -1,0 +1,39 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/search_plan#about">
+  <table width="287" height="196" border="1" class="table table-bordered">
+
+    <tr>
+      <td>User</td>
+      <td>Age</td>
+      <td>Height</td>
+      <td>Weight</td>
+      <td>Plan</td>
+      <td>Diet</td>
+        <td></td>
+
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.USER.first_name }} {{ i.USER.last_name }}</td>
+      <td>{{ i.age }}</td>
+      <td>{{ i.height }}</td>
+      <td>{{ i.weight }}</td>
+      <td>{{ i.plan }}</td>
+      <td><a href="{{ i.diet.url }}" download>Download</a> </td>
+      <td>
+          <a href="/accept_diet/{{ i.id }}" class="btn btn-secondary" >Accept</a>
+          <a href="/reject_diet/{{ i.id }}" class="btn btn-secondary" >Reject</a>
+
+
+      </td>
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

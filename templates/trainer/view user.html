@@ -1,0 +1,37 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/viewuse_searchh">
+ <table width="506" border="1" id="customers">
+    <tr>
+      <td colspan="6"><div align="center" id="customers">
+        <label>
+        <input type="text" name="textfield"required  pattern="[A-Z a-z.]{2,25}"  class="form-control" />
+        </label>
+        <label>
+        <input button type="submit" class="btn btn-success" />
+        </label>
+      </div></td>
+    </tr>
+    <tr>
+      <th width="59">NAME</th>
+      <th width="47">PHOTO</th>
+      <th width="72">GENDER</th>
+      <th width="85">ADRESS</th>
+      <th width="98">PHONE</th>
+      <th width="105">EMAIL</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td height="98">{{ i.firstname  }} {{ i.lastname }}</td>
+      <td><img src="media/{{ i.photo }}" alt="" width="100" height="100"/></td>
+      <td>{{ i.gender}}</td>
+      <td>{{ i.place}}{{ i.post }}{{ i.pin }}</td>
+      <td>{{i.phone  }}</td>
+      <td>{{ i.email }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

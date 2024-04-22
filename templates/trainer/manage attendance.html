@@ -1,0 +1,47 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/manageattendance_search">
+  <table width="632" height="288" border="1" id="customers">
+    <tr>
+      <td colspan="3"><div align="center">From date
+        <label>
+        <input type="date" name="textfield"required class="btn btn-outline-primary"/>
+        </label> 
+        To date
+        <label>
+        <input type="date" name="textfield2"required  class="btn btn-outline-primary"/>
+        </label>
+</div></td>
+    </tr>
+    <tr>
+      <td colspan="3"><div align="center">
+        <label>
+        <input button type="submit" class="btn btn-success" />
+        </label>
+      </div></td>
+    </tr>
+    <tr>
+      <th>USER</th>
+      <th>DATE</th>
+      <th>ATTANDANCE(%)</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.user.firstname }} {{ i.user.lastname }}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.attendance}}</td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="3"><div align="center">
+        <label>
+        <a href="/addattendan"class="btn btn-secondary">ADD ATTENDANCE</a>
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

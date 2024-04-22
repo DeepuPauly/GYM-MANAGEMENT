@@ -1,0 +1,29 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/addattendanpost">
+  <table width="429" height="214" border="1" id="customers">
+    <tr>
+      <td>user</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{ i.user.firstname }} {{ i.user.lastname }}</td>
+      <td><label>
+        <input type="checkbox" name="checkbox" value="{{ i.id }}" />
+      </label></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="Add" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

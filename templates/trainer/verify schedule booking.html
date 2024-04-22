@@ -1,0 +1,35 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="searchverifyschedule">
+  <table width="711" height="178" border="1" id="customers">
+    <tr>
+      <td colspan="4"><div align="center">DATE
+        <label>
+       <input type="date"name="t2"class="btn btn-outline-primary">
+        </label>
+        <label>
+        <input button type="submit" class="btn btn-success" />
+        </label>
+      </div></td>
+    </tr>
+    <tr>
+      <th>USER</th>
+      <th>DATE</th>
+      <th>TIME</th>
+      <th>STATUS</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.user.firstname }} {{ i.user.lastname }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.time }}</td>
+      <td>{% if i.status == 'pending' %}<p><a href="/acceptverifyschedule/{{ i.id }}">accept</a></p>
+      <p><a href="/rejectverifyschedule/{{ i.id }}">reject</a></p>{% else %} {{ i.status }} {% endif %}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewratin_search">
+  <table width="354" height="162" border="1" id="customers">
+    <tr>
+      <td colspan="4"><div align="center">Trainers
+        <label>
+        <select name="select">
+            {% for i in val1 %}
+                <option value="{{ i.id }}" {% if i.id == s %} selected {% endif %}>{{ i.firstname }} {{ i.lastname }}</option>
+            {% endfor %}
+        </select>
+        </label>
+        <label>
+        <input button type="submit" class="btn btn-success" />
+        </label>
+      </div></td>
+    </tr>
+    <tr>
+      <th>Trainer</th>
+      <th>user</th>
+      <th>rating</th>
+      <th>reviews</th>
+      <th>date</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.trainers.firstname }} {{ i.user.lastname }}</td>
+      <td>{{ i.user.firstname }} {{ i.user.lastname }}</td>
+      <td>{{ i.rating }}</td>
+      <td>{{ i.reviews }}</td>
+      <td>{{ i.date }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

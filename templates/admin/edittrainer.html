@@ -1,0 +1,88 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edittrainerpost" enctype="multipart/form-data">
+  <table width="316" border="1" id="customers">
+    <tr>
+      <td width="65">first name </td>
+      <td width="235"><label>
+        <input type="text" name="textfield"required  pattern="[A-Z a-z.]{1,25}" value="{{ val.firstname }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>last name </td>
+      <td><label>
+        <input type="text" name="textfield2"required  pattern="[A-Z a-z.]{1,25}" value="{{ val.lastname }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" checked />
+      male 
+      <input name="radiobutton" type="radio" value="female" />
+      female 
+      <input name="radiobutton" type="radio" value="none" />
+      none</label></td>
+    </tr>
+    <tr>
+      <td>photo</td>
+      <td><label>
+        <input type="file" name="textfield3"required value="{{ val.photo }}" /><img src="/media/{{ val.photo }}" width="100dp" height="100dp" alt=""/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>place</td>
+      <td><label>
+        <input type="text" name="textfield4"required value="{{ val.place }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>post</td>
+      <td><label>
+        <input type="text" name="textfield5" required  pattern="[A-Z a-z.]{1,25}" value="{{ val.post }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>pin</td>
+      <td><label>
+        <input type="text" name="textfield6" required pattern="[0-9]{6}" value="{{ val.pin }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>certificate</td>
+      <td><label>
+        <input type="file" name="textfield7"required value="{{ val.certificate }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>experience</td>
+      <td><label>
+        <input type="text" name="textfield8"required value="{{ val.work_experience }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>phone</td>
+      <td><label>
+        <input type="text" name="textfield9"required pattern="[6789][0-9]{9}" value="{{ val.phone }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td><label>
+        <input type="text" name="textfield10"required value="{{ val.email }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="Edit" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+{% endblock %}

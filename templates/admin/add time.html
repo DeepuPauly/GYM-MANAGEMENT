@@ -1,0 +1,32 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="edittimepost">
+  <table width="407" border="1" id="customers">
+    <tr>
+      <th>TRAINER </th>
+      <th>START TIME </th>
+      <th>END TIME </th>
+      <th>DAY</th>
+      <th>&nbsp;</th>
+
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.trainers.firstname }} {{ i.trainers.lastname }}</td>
+      <td>&nbsp;{{ i.starttime }}</td>
+      <td>{{ i.endtime}};</td>
+      <td>&nbsp;{{ i.day }}</td>
+      <td><a href="/addtimeedit/{{ i.id }}">edit</a><br>
+          <a href="/deleteaddtime/{{ i.id }}">delete</a></td>
+
+    </tr>
+      {% endfor %}
+    <tr>
+      <td height="23" colspan="4"><div align="center"><a href="/addtime1" class="btn btn-secondary">ADD TIME</a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

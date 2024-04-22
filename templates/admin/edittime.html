@@ -1,0 +1,55 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edittimepost">
+  <table width="358" border="1" id="customers">
+
+       <tr>
+      <td>Trainer</td>
+
+      <td><select name="select1">
+
+            {% for i in val1 %}
+          <option value="{{ i.id }}" {% if i.id == val.trainers.id  %} selected {% endif %}>{{ i.firstname }} {{ i.lastname }}</option>
+{% endfor %}
+      </select></td>
+    </tr>
+
+    <tr>
+      <td width="92">start</td>
+      <td width="250"><label>
+        <input type="time" name="textfield"required value="{{ f_time}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td><label>
+        <input type="time" name="textfield2"required value="{{ t_time }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>day</td>
+      <td><label>
+        <select name="select">{{ val.day }}
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="Edit" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

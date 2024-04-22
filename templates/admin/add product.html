@@ -1,0 +1,45 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post"  enctype="multipart/form-data" action="/manage2">
+  <table width="479" height="227" border="1" id="customers">
+    <tr>
+      <td>product</td>
+      <td><label>
+        <input type="text" name="textfield" required  pattern="[A-Z a-z.]{2,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td><input type="file" name="file" required></td>
+    </tr>
+    <tr>
+      <td>price</td>
+      <td><label>
+        <input type="number" name="textfield3" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>stock</td>
+      <td><label>
+        <input type="number" name="textfield4" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>details</td>
+      <td><label>
+        <input type="text" name="textfield5" required  pattern="[A-Z a-z.]{3,}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="Add" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="viewfeeinfor_search">
+  <table width="482" height="181" border="1" id="customers">
+    <tr>
+      <td colspan="4"><div align="center">FROM
+          <label>
+        <input type="date" name="textfield"required value="{{ date }}" />
+        </label>
+      TO
+      <label>
+      <input type="date" name="textfield2"required value="{{ date1 }}" />
+      </label>
+      <label>
+      <input button type="submit" class="btn btn-success" />
+      </label>
+      </div></td>
+    </tr>
+    <tr>
+      <th>USER</th>
+      <th>DATE</th>
+      <th>AMOUNT</th>
+      <th>STATUS</th>
+    </tr>
+      {% for i in val %}
+
+    <tr>
+      <td>{{ i.user.firstname }} {{ i.user.lastname }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.amount }}</td>
+      <td>{{ i.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

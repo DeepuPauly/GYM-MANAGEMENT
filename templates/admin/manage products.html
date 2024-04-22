@@ -1,0 +1,42 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/manageprod_search">
+  <table width="528" height="206" border="1" id="customers">
+    <tr>
+      <td colspan="6"><div align="center">name
+        <label>
+        <input type="text" name="textfield"required value="{{ name }}" class="form-control" />
+        </label>
+        <label>
+        <input button type="submit" class="btn btn-success" />
+        </label>
+      </div></td>
+    </tr>
+    <tr>
+      <th>product name </th>
+      <th>image</th>
+      <th>price</th>
+      <th>stock</th>
+      <th>details</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.productname }}</td>
+      <td>&nbsp;<img src="{{ i.image.url }}" alt="" width="200" height="200"/></td>
+      <td> {{ i.price }}</td>
+      <td> {{ i.stock}}</td>
+      <td>{{ i.details }}</td>
+      <td><p><a href="/editmanageproduct/{{ i.id }}">edit</a></p>
+      <p><a href="/deletemanageprod/{{ i.id }}">delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6"><div align="center"><a href="add_prod#about" class="btn btn-secondar">ADD NEW</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="450" height="199" border="1" id="customers">
+    <tr>
+      <td>users</td>
+      <td>Food</td>
+      <td>&nbsp;Date</td>
+      <td>Time</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.user.firstname }} {{ i.user.lastname }}</td>
+      <td>&nbsp;{{ i.food }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.time }}</td>
+{#      <td><a href="#">foodhistory</a></td>#}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

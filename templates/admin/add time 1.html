@@ -1,0 +1,55 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/addtime2">
+  <table width="358" border="1"  id="customers">
+
+      <tr>
+      <td>Trainer</td>
+      <td><label>
+        <select name="select1" required>
+           {% for i in val %}
+               <option value="{{ i.id }}">{{ i.firstname }} {{ i.lastname }}</option>
+           {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td width="92">start</td>
+      <td width="250"><label>
+        <input type="time" name="textfield" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td><label>
+        <input type="time" name="textfield2"required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>day</td>
+      <td><label>
+        <select name="select" required>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <label>
+        <input type="submit" name="Submit" value="add" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="vieworder">
+  <table width="629" height="162" border="1" id="customers">
+    <tr>
+      <th>user</th>
+      <th>total amount</th>
+      <th>date</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.user.firstname }} {{ i.user.lastname  }}</td>
+      <td>{{ i.amount }}</td>
+      <td>{{ i.date }}</td>
+      <td><a href="/viewprod/{{ i.id }}">view product</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

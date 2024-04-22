@@ -1,0 +1,24 @@
+{% extends 'indexadmin.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="337" height="132" border="1" id="customers">
+    <tr>
+      <td>product</td>
+      <td>image</td>
+      <td>price</td>
+      <td>quantity</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.product.productname }}</td>
+      <td>&nbsp;<img src="/media/{{ i.product.image }}" width="100dp" height="100dp" alt=""/></td>
+      <td>&nbsp;{{ i.product.price }}</td>
+      <td>&nbsp;{{ i.product.stock }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'indextrainer.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post"  enctype="multipart/form-data" action="/addvid">
+
+<table width="478" height="183" border="1" id="customers">
+  <tr>
+    <th>SUBJECT</th>
+    <th>VIDEOS</th>
+    <th>DATE</th>
+    <td>&nbsp;</td>
+  </tr>
+  {% for i in val %}
+  <tr>
+    <td>{{i.subject }}</td>
+      <td><video height="200" width="160" controls>
+          <source src="{{ i.video.url }}" type="video/mp4">
+      </video></td>
+    <td> {{i.date }}</td>
+    <td><a href="/deletemanagevideos/{{ i.id }}">delete</a></td>
+  </tr>
+    {% endfor %}
+  <tr>
+    <td colspan="4"><div align="center">
+      <label>
+      <input type="submit" name="Submit" value="add" />
+      </label>
+    </div></td>
+  </tr>
+</table>
+    </form>
+</body>
+{% endblock %}
